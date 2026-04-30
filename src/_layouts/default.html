@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.name }} - {{ page.title }}</title>
+    {% include site-favicons.html %}
+    {% include site-fonts.html %}
+    {% include site-styles.html %}
+</head>
+<body>
+    <header>
+        {% include nav-header.html %}
+    </header>
+    <main>
+        <article>
+            {{ content }}
+        </article>
+    </main>
+    <footer>
+        {% include nav-footer.html %}
+    </footer>
+    {% include site-scripts.html %}
+</body>
+</html>

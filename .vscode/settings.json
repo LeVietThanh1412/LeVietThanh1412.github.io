@@ -1,0 +1,30 @@
+{
+    "yaml.schemas": {
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.16-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.17-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.14-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml",
+            "file:///c%3A/Users/ADMIN/.continue/config.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.3.30-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.18-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.21-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///c%3A/Users/ADMIN/.vscode/extensions/continue.continue-1.2.22-win32-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "file:///home/archlinux/.vscode/extensions/continue.continue-1.2.22-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml",
+            "file:///e%3A/LeVietThanh1412-Product/LeVietThanh1412.github.io/.continue/agents/new-config.yaml"
+        ]
+    }
+}
