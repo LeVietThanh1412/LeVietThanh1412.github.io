@@ -1,3 +1,4 @@
 .vscode/
 .continue/agents/config.yaml
 *.DS_Store
+.agent/

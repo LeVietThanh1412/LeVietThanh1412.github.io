@@ -1,111 +1,256 @@
-<!doctype html>
-<html lang="vi">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Lê Việt Thành — AI Engineer · Software Engineer</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <main class="hero">
-      <div class="overlay"></div>
-      <div class="container">
-        <aside class="side">
-          <div class="card profile">
-            <img class="avatar" src="anh/anh_the.jpg" alt="Lê Việt Thành">
-            <div class="profile-info">
-              <h1 class="name">Lê Việt Thành</h1>
-              <p class="role">AI Engineer · Software Engineer</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Lê Việt Thành - AI Engineer & DevOps Portfolio" />
+  <title>Lê Việt Thành | AI Engineer & DevOps</title>
 
-              <ul class="contact">
-                <li>🗓️ 14/12/2006</li>
-                <li>📱 0352461412</li>
-                <li>📧 <a href="mailto:thanhdevuetvnu2024@gmail.com">thanhdevuetvnu2024@gmail.com</a></li>
-                <li>📇 <a href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener">github.com/LeVietThanh1412</a></li>
-                <li> 📍 Hà Nội</li>
-              </ul>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-RXf+QSDCUQs6Q0aZJwQx0xJf8G2P4T6z+5gWcqXrJrJb7hFTk5bQ2c9D0R9sE1v9G1bq9tN2Y2X8hF4q6r2d0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-              <a class="btn block" href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener">Xem GitHub Project</a>
-            </div>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar">
+      <a class="logo" href="#top">LVT<span class="logo-dot">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
+      <a href="#about">Giới thiệu</a>
+      <a href="#projects">Dự án</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="container hero-grid reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Hello, I am</p>
+          <h1>Lê Việt Thành</h1>
+          <p class="hero-role">
+            <span id="typed-text"></span><span class="typing-cursor">|</span>
+          </p>
+          <p class="hero-tagline">Bridging the gap between Machine Learning models and robust System Architectures.</p>
+          <p class="hero-meta">AI student at UET - VNU, focused on Computer Vision and DevOps microservices.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Xem Dự Án</a>
+            <a class="btn btn-ghost" href="CV.pdf" target="_blank" rel="noopener">Tải CV (PDF)</a>
           </div>
-
-          <div class="card quick-facts">
-            <h3>Mục tiêu nghề nghiệp</h3>
-            <p>Mong muốn vận dụng tư duy Toán học (Xác suất, Tối ưu hoá) và kỹ năng lập trình hệ thống để giải quyết bài toán Khoa học dữ liệu & AI — đặc biệt Machine Learning và Reinforcement Learning.</p>
-            <p><strong>Ngắn hạn:</strong> Tham gia dự án nghiên cứu, triển khai và tối ưu hoá thuật toán học máy trên nền tảng hạn chế tài nguyên.</p>
-            <p><strong>Dài hạn:</strong> Trở thành Software Engineer full-stack từ phần cứng đến thuật toán, đóng góp OSS.</p>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <img src="anh/anh_the.jpg" alt="Portrait of Lê Việt Thành" />
+            <div class="hero-card-glow"></div>
           </div>
-        </aside>
-
-        <section class="main">
-          <div class="card section" id="education">
-            <h2>Học vấn</h2>
-            <p><strong>2024 - Hiện tại</strong> — Đại học Công Nghệ, Đại học Quốc gia Hà Nội (Chuyên ngành: Trí Tuệ Nhân Tạo)</p>
-            <p>GPA: 3.40/4 • DSA: 9.8/10 • LTXLDL: 9.8/10</p>
-            <p>Vị trí: Nghiên cứu viên sinh viên, Phòng thí nghiệm Hệ thống tích hợp thông minh (VNU-SISLAB)</p>
-          </div>
-
-          <div class="card section" id="certifications">
-            <h2>Chứng chỉ & Đánh giá</h2>
-            <ul>
-              <li>IQ TEST: 122.67 (Viettel Digital Talent)</li>
-              <li>TOEIC: 455/990 (Lis:310 - Rea:145)</li>
-              <li>Đánh giá chuyên môn SE: 8/10 (Viettel Digital Talent)</li>
-            </ul>
-          </div>
-
-          <div class="card section" id="skills">
-            <h2>Kỹ năng</h2>
-            <div class="skills-grid">
-              <div>
-                <h4>Ngôn ngữ & Lập trình</h4>
-                <p>C++ (thành thạo), Python (hàng ngày), Java, SQL, NoSQL</p>
-              </div>
-              <div>
-                <h4>Hệ thống & DevOps</h4>
-                <p>Linux administration (Ubuntu/Arch/Fedora), Docker, Git/GitHub, GitHub Actions</p>
-              </div>
-              <div>
-                <h4>AI & Data</h4>
-                <p>Pandas, NumPy, scikit-learn, OpenCV, YOLOv8, NEAT</p>
-              </div>
-              <div>
-                <h4>Khác</h4>
-                <p>Data processing, visualization (matplotlib, seaborn, folium, keplergl)</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card section" id="projects">
-            <h2>Dự án tiêu biểu</h2>
-
-            <h4>Library Management (Jan 2025 - May 2025) — Leader</h4>
-            <p>Java 21, JavaFX, Swing, Maven, Google Books API, ZXing, Multithreading, JUnit.</p>
-            <p>Repo: <a href="https://github.com/LeVietThanh1412/BTL---OOP---Group-10" target="_blank" rel="noopener">BTL---OOP--Group-10</a></p>
-
-            <h4>Inside Airbnb - Clean data (Oct 2025 - Dec 2025) — Leader</h4>
-            <p>Python, pandas, geopandas, scikit-learn, Kepler.gl, Folium. Xử lý ~35k listings và ~12M calendar rows.</p>
-            <p>Repo: <a href="https://github.com/LeVietThanh1412/2526-LTXLDL-Project-AIT2006-2-4.2" target="_blank" rel="noopener">2526-LTXLDL</a></p>
-
-            <h4>AI Vision Hand and Face controller — Personal Project</h4>
-            <p>OpenCV, MediaPipe, YOLOv8, Pygame. Repo: <a href="https://github.com/LeVietThanh1412/cleaning-robot-rl" target="_blank" rel="noopener">cleaning-robot-rl</a></p>
-
-            <h4>AI Flappy Bird (NEAT) — Personal Project</h4>
-            <p>Python, NEAT-Python, Pygame. Repo: <a href="https://github.com/LeVietThanh1412/flappy-bird-neat" target="_blank" rel="noopener">flappy-bird-neat</a></p>
-          </div>
-
-          <div class="card section" id="more">
-            <h2>Thông tin thêm</h2>
-            <p>Khám phá công nghệ mới: AI, Machine Learning, LLMs. Kinh nghiệm Linux System Administration, System Migration, automation và muốn đóng góp mã nguồn mở.</p>
-          </div>
-
-          <footer class="footer">© <span id="year"></span> Lê Việt Thành — <a href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener">GitHub</a></footer>
-        </section>
+        </div>
       </div>
-    </main>
 
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </body>
+      <div class="container info-grid">
+        <div class="info-card reveal">
+          <h3>Education</h3>
+          <p class="mono">University of Engineering and Technology (UET) - VNU</p>
+          <p>Major: Artificial Intelligence</p>
+          <p class="mono">Student ID: 24022454</p>
+        </div>
+        <div class="info-card reveal">
+          <h3>Core Skills</h3>
+          <div class="skill-group">
+            <span class="tag">Linux (Arch, Ubuntu)</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">Cloudflare Tunnel</span>
+            <span class="tag">Zero Trust</span>
+            <span class="tag">Bash/Zsh</span>
+          </div>
+          <div class="skill-group">
+            <span class="tag">CNNs</span>
+            <span class="tag">RNNs/LSTMs</span>
+            <span class="tag">Gemini API</span>
+            <span class="tag">Prompt Engineering</span>
+          </div>
+          <div class="skill-group">
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">VueJS/Vite</span>
+            <span class="tag">Git/GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Dự án tiêu biểu</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Smart Attendance System</h3>
+              <p>Nền tảng điểm danh bằng nhận diện khuôn mặt theo kiến trúc microservices.</p>
+              <p class="mono">Vai trò: Team Leader & DevOps Lead</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Vue/Vite</span>
+              <span class="tag">Celery</span>
+              <span class="tag">Qdrant</span>
+              <span class="tag">MinIO</span>
+              <span class="tag">Docker Compose</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="http://thanhtech.cloud" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/BTL-2526II_AIT3004_2-smart_attendance_system" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Airbnb Data Processing (AIT2006)</h3>
+              <p>Pipeline làm sạch dữ liệu lớn cho các thành phố Đông Nam Á.</p>
+              <p class="mono">Trọng tâm: data pipelines và tự động hóa</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Data Pipelines</span>
+              <span class="tag">ETL</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/2526-LTXLDL-Project-AIT2006-2-4.2" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>BTL OOP - Group 10</h3>
+              <p>Đồ án lập trình hướng đối tượng với kiến trúc rõ ràng, có thể mở rộng.</p>
+              <p class="mono">Trọng tâm: thiết kế class và công cụ</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">OOP</span>
+              <span class="tag">Java</span>
+              <span class="tag">Design</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/BTL---OOP---Group-10" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>My Java Web DB</h3>
+              <p>Ứng dụng web Java kết nối cơ sở dữ liệu, đầy đủ CRUD.</p>
+              <p class="mono">Trọng tâm: backend và truy vấn DB</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Web</span>
+              <span class="tag">Database</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/my-java-web-db" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>AI Vision Controller</h3>
+              <p>Điều khiển và giám sát hệ thống qua computer vision.</p>
+              <p class="mono">Trọng tâm: AI vision và hệ thống</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Computer Vision</span>
+              <span class="tag">AI</span>
+              <span class="tag">Automation</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/ai-vision-controller" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <h3>Flappy Bird - NEAT</h3>
+              <p>Mô phỏng Flappy Bird với thuật toán NEAT tự động học.</p>
+              <p class="mono">Trọng tâm: AI/Genetic Algorithm</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">NEAT</span>
+              <span class="tag">AI</span>
+              <span class="tag">Game</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
+              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/flappy-bird-neat" target="_blank" rel="noopener">
+                <i class="fa-brands fa-github"></i> GitHub
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container contact-card reveal">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Sẵn sàng cho cơ hội mới</h2>
+          <p>Open to AI Engineer & DevOps collaborations and system design discussions.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="mailto:your.email@example.com">Email me</a>
+          <a class="icon-btn" href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a class="icon-btn" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Deployed securely via Cloudflare Tunnels & GitHub Pages.</p>
+      <p class="mono">Domain: thanhtech.cloud</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
 </html>

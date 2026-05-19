@@ -26,5 +26,7 @@
             ".continue/**/*.yaml",
             "file:///e%3A/LeVietThanh1412-Product/LeVietThanh1412.github.io/.continue/agents/new-config.yaml"
         ]
-    }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
 }
