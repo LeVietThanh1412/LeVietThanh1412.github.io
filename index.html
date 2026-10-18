@@ -1,260 +1,251 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Lê Việt Thành - AI Engineer & DevOps Portfolio" />
-  <title>Lê Việt Thành | AI Engineer & DevOps</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-RXf+QSDCUQs6Q0aZJwQx0xJf8G2P4T6z+5gWcqXrJrJb7hFTk5bQ2c9D0R9sE1v9G1bq9tN2Y2X8hF4q6r2d0A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="Lê Việt Thành — AI, Computer Vision và hệ thống. Khám phá các dự án mã nguồn mở và trải nghiệm các bản web tại ThanhTech.">
+  <meta property="og:title" content="Lê Việt Thành — AI & Systems">
+  <meta property="og:description" content="Từ ý tưởng, đến mô hình, đến hệ thống thực tế. Dự án và những thử nghiệm của Thành.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thanhtech.cloud/">
+  <meta property="og:image" content="https://thanhtech.cloud/anh/anh_the.jpg">
+  <title>Lê Việt Thành — AI & Systems</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;550;600;700;750&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/script.js" defer></script>
 </head>
-<body>
-  <div class="bg-grid"></div>
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-
-  <header class="site-header" id="top">
-    <nav class="navbar">
-      <a class="logo" href="#top">LVT<span class="logo-dot">.</span></a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#about">Giới thiệu</a></li>
-        <li><a href="#projects">Dự án</a></li>
-        <li><a href="#contact">Liên hệ</a></li>
-      </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+<body id="top">
+  <a class="skip-link" href="#main">Đến nội dung chính</a>
+  <header class="site-header">
+    <nav class="container navbar" aria-label="Điều hướng chính">
+      <a class="wordmark" href="#top" aria-label="ThanhTech — trang chủ">thanh<span>tech</span><i aria-hidden="true">↗</i></a>
+      <div class="nav-links" id="navigation"><a href="#about">Về mình</a><a href="#playground">Web đang chạy</a><a href="#projects">Dự án</a></div>
+      <a class="nav-contact" href="#contact">Kết nối <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" type="button" aria-label="Mở menu" aria-controls="navigation" aria-expanded="false"><span></span><span></span></button>
     </nav>
-    <div class="nav-mobile" id="nav-mobile" aria-hidden="true">
-      <a href="#about">Giới thiệu</a>
-      <a href="#projects">Dự án</a>
-      <a href="#contact">Liên hệ</a>
-    </div>
   </header>
-
-  <main>
-    <section class="hero" id="about">
-      <div class="container hero-grid reveal">
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-kicker"><span class="status-dot"></span> MỘT GÓC NHỎ TRÊN INTERNET <span class="edition">PORTFOLIO / 2026</span></div>
+      <div class="hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow">Hello, I am</p>
-          <h1>Lê Việt Thành</h1>
-          <p class="hero-role">
-            <span id="typed-text"></span><span class="typing-cursor">|</span>
-          </p>
-          <p class="hero-tagline">Bridging the gap between Machine Learning models and robust System Architectures.</p>
-          <p class="hero-meta">AI student at UET - VNU, focused on Computer Vision and DevOps microservices.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Xem Dự Án</a>
-            <a class="btn btn-ghost" href="CV.pdf" target="_blank" rel="noopener">Tải CV (PDF)</a>
-          </div>
+          <p class="intro">Xin chào, mình là</p>
+          <h1 id="hero-title">Lê Việt<br>Thành<span>.</span></h1>
+          <p class="hero-role">AI & Computer Vision <span>/</span> Systems & DevOps</p>
+          <p class="hero-description">Thích tìm hiểu cách mọi thứ hoạt động.<br> Và biến những ý tưởng thành hệ thống thực tế.</p>
+          <div class="hero-actions"><a class="button button-dark" href="#projects">Khám phá dự án <span aria-hidden="true">↗</span></a><a class="text-link" href="CV.pdf" target="_blank" rel="noopener">Xem CV <span aria-hidden="true">↓</span></a></div>
         </div>
-        <div class="hero-visual">
-          <div class="hero-card">
-            <img src="anh/anh_the.jpg" alt="Portrait of Lê Việt Thành" />
-            <div class="hero-card-glow"></div>
-          </div>
+        <div class="portrait-composition">
+          <div class="portrait-note"><span class="tiny-cross" aria-hidden="true">✳</span><span>Luôn tò mò.<br>Luôn xây dựng.</span></div>
+          <figure class="portrait"><img src="anh/anh_the.jpg" alt="Lê Việt Thành" width="600" height="800" fetchpriority="high"><figcaption><span>LÊ VIỆT THÀNH</span><span>HANOI, VN ↗</span></figcaption></figure>
+          <div class="portrait-footer"><span class="status-dot"></span> Học, thử nghiệm & phát triển <span class="coordinate" aria-hidden="true">[ 01 — ∞ ]</span></div>
         </div>
       </div>
-
-      <div class="container info-grid">
-        <div class="info-card reveal">
-          <h3>Education</h3>
-          <p class="mono">University of Engineering and Technology (UET) - VNU</p>
-          <p>Major: Artificial Intelligence</p>
-          <p class="mono">Student ID: 24022454</p>
-        </div>
-        <div class="info-card reveal">
-          <h3>Core Skills</h3>
-          <div class="skill-group">
-            <span class="tag">Linux (Arch, Ubuntu)</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Nginx</span>
-            <span class="tag">Cloudflare Tunnel</span>
-            <span class="tag">Zero Trust</span>
-            <span class="tag">Bash/Zsh</span>
-          </div>
-          <div class="skill-group">
-            <span class="tag">CNNs</span>
-            <span class="tag">RNNs/LSTMs</span>
-            <span class="tag">Gemini API</span>
-            <span class="tag">Prompt Engineering</span>
-          </div>
-          <div class="skill-group">
-            <span class="tag">C++</span>
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">VueJS/Vite</span>
-            <span class="tag">Git/GitHub</span>
-          </div>
-        </div>
+      <div class="hero-bottom"><p>Artificial Intelligence<br><strong>UET · VNU Hanoi</strong></p><p class="hero-principle">Có ý tưởng. Có mã nguồn.<br><strong>Có thứ để bạn thử ngay.</strong></p><a class="scroll-link" href="#playground">CUỘN ĐỂ KHÁM PHÁ <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <section class="playground section container" id="playground" aria-labelledby="playground-title">
+      <div class="section-top"><p class="eyebrow"><span>01 /</span> THE PLAYGROUND</p><span class="section-note">Từ repo đến trình duyệt của bạn</span></div>
+      <div class="section-heading"><h2 id="playground-title">Đừng chỉ xem. <span>Thử luôn.</span></h2><span class="small-label"><span class="status-dot"></span> WEB DEMOS</span></div>
+      <div class="demo-grid" id="demo-grid">
+        <!-- DEMOS:START -->
+<article class="demo-card">
+  <a class="demo-preview preview-3d" href="https://thanhtech.cloud/3D_Control/" target="_blank" rel="noopener" aria-label="Trải nghiệm WonderSnap / 3D Control"><span class="demo-index">EXPERIMENT / 01</span><svg class="demo-art" viewBox="0 0 360 240" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".8"><ellipse cx="180" cy="145" rx="132" ry="32" opacity=".2"/><path d="m180 34 82 47v94l-82 47-82-47V81Zm0 0v94m82-47-82 47-82-47m82 47v94"/><path d="m180 57 62 36v70l-62 36-62-36V93Zm0 0v71m62-35-62 35-62-35m62 35v71" opacity=".35"/><path d="M35 128h290M180 12v226" stroke-dasharray="3 6" opacity=".25"/><circle cx="180" cy="128" r="5" fill="currentColor" stroke="none"/><circle cx="262" cy="81" r="3" fill="currentColor"/><circle cx="98" cy="175" r="3" fill="currentColor"/></g></svg><span class="demo-open" aria-hidden="true">↗</span></a>
+  <div class="demo-caption"><div class="demo-title-line"><h3><a href="https://thanhtech.cloud/3D_Control/" target="_blank" rel="noopener">WonderSnap / 3D Control</a></h3><a class="demo-source" href="https://github.com/LeVietThanh1412/3D_Control" target="_blank" rel="noopener" aria-label="Mã nguồn WonderSnap / 3D Control">CODE ↗</a></div><p>Thế giới hạt 3D tương tác, điều khiển bằng cử chỉ bàn tay ngay trên trình duyệt.</p><a class="demo-path" href="https://thanhtech.cloud/3D_Control/" target="_blank" rel="noopener">thanhtech.cloud/3D_Control ↗</a></div>
+</article>
+<article class="demo-card">
+  <a class="demo-preview preview-fashion" href="https://thanhtech.cloud/VietPhucRemix/" target="_blank" rel="noopener" aria-label="Trải nghiệm Việt Phục Remix"><span class="demo-index">EXPERIMENT / 02</span><svg class="demo-art" viewBox="0 0 360 240" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="180" cy="120" r="87" opacity=".18"/><circle cx="180" cy="120" r="64" opacity=".14"/><path d="m155 46-35 25-22 57 30 10 13-30-10 104h98l-10-104 13 30 30-10-22-57-35-25-25 18Z" fill="currentColor" fill-opacity=".07"/><path d="m155 46 25 18 25-18M180 64v148m-43-45 43-29 43 29M145 83l-6 64m76-64 6 64" opacity=".7"/><path d="m162 86 18 15 18-15-18 39Zm0 91 18 14 18-14" opacity=".5"/><circle cx="180" cy="77" r="2"/><path d="M53 198h39m-19-19v38m197-165h30m-15-15v30" opacity=".35"/></g></svg><span class="demo-open" aria-hidden="true">↗</span></a>
+  <div class="demo-caption"><div class="demo-title-line"><h3><a href="https://thanhtech.cloud/VietPhucRemix/" target="_blank" rel="noopener">Việt Phục Remix</a></h3><a class="demo-source" href="https://github.com/LeVietThanh1412/VietPhucRemix" target="_blank" rel="noopener" aria-label="Mã nguồn Việt Phục Remix">CODE ↗</a></div><p>Khám phá và phối trang phục truyền thống Việt Nam theo phong cách của bạn.</p><a class="demo-path" href="https://thanhtech.cloud/VietPhucRemix/" target="_blank" rel="noopener">thanhtech.cloud/VietPhucRemix ↗</a></div>
+</article>
+<article class="demo-card">
+  <a class="demo-preview preview-heart" href="https://thanhtech.cloud/HeartForU/" target="_blank" rel="noopener" aria-label="Trải nghiệm Heart For U"><span class="demo-index">EXPERIMENT / 03</span><svg class="demo-art" viewBox="0 0 360 240" aria-hidden="true"><g fill="none" stroke="currentColor"><path d="M180 199C157 178 89 137 89 91c0-47 62-57 91-13 29-44 91-34 91 13 0 46-68 87-91 108Z" stroke-width="1.2"/><path d="M180 181c-19-18-72-50-72-87 0-35 47-42 72-8 25-34 72-27 72 8 0 37-53 69-72 87Z" stroke-width=".7" opacity=".4"/><path d="M180 215c-28-24-108-74-108-126 0-59 77-70 108-23 31-47 108-36 108 23 0 52-80 102-108 126Z" stroke-width=".7" stroke-dasharray="1 6" opacity=".5"/><circle cx="56" cy="110" r="2"/><circle cx="301" cy="157" r="2"/><circle cx="257" cy="28" r="2"/><circle cx="132" cy="217" r="1.5"/><path d="m64 181 4 4m0-4-4 4m231-99 5 5m0-5-5 5" opacity=".6"/></g></svg><span class="demo-open" aria-hidden="true">↗</span></a>
+  <div class="demo-caption"><div class="demo-title-line"><h3><a href="https://thanhtech.cloud/HeartForU/" target="_blank" rel="noopener">Heart For U</a></h3><a class="demo-source" href="https://github.com/LeVietThanh1412/HeartForU" target="_blank" rel="noopener" aria-label="Mã nguồn Heart For U">CODE ↗</a></div><p>Một trái tim, hàng trăm hạt chuyển động. Thử nghiệm nhỏ với HTML Canvas.</p><a class="demo-path" href="https://thanhtech.cloud/HeartForU/" target="_blank" rel="noopener">thanhtech.cloud/HeartForU ↗</a></div>
+</article>
+        <!-- DEMOS:END -->
       </div>
     </section>
-
-    <section class="projects" id="projects">
-      <div class="container">
-        <div class="section-header reveal">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Dự án tiêu biểu</h2>
+    <section class="projects section container" id="projects" aria-labelledby="projects-title">
+      <div class="section-top"><p class="eyebrow"><span>02 /</span> BUILT & BUILDING</p><a class="text-link small" href="https://github.com/LeVietThanh1412?tab=repositories" target="_blank" rel="noopener">Tất cả trên GitHub <span aria-hidden="true">↗</span></a></div>
+      <div class="section-heading"><h2 id="projects-title">Những thứ mình xây<span>.</span></h2><p class="section-note">Một chút AI. Một chút hệ thống.<br>Và rất nhiều lần thử.</p></div>
+      <div class="project-toolbar" id="project-tools" hidden>
+        <div class="filters" role="group" aria-label="Lọc dự án">
+          <button class="filter active" type="button" data-filter="all" aria-pressed="true">Tất cả <span id="project-total"></span></button>
+          <button class="filter" type="button" data-filter="ai" aria-pressed="false">AI & Data</button>
+          <button class="filter" type="button" data-filter="systems" aria-pressed="false">Systems</button>
+          <button class="filter" type="button" data-filter="web" aria-pressed="false">Web & Apps</button>
+          <button class="filter" type="button" data-filter="live" aria-pressed="false">Có web <span class="status-dot"></span></button>
         </div>
-        <div class="project-grid">
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>Smart Attendance System</h3>
-              <p>Nền tảng điểm danh bằng nhận diện khuôn mặt theo kiến trúc microservices.</p>
-              <p class="mono">Vai trò: Team Leader & DevOps Lead</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">FastAPI</span>
-              <span class="tag">Vue/Vite</span>
-              <span class="tag">Celery</span>
-              <span class="tag">Qdrant</span>
-              <span class="tag">MinIO</span>
-              <span class="tag">Docker Compose</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="http://attendance.thanhtech.cloud" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/BTL-2526II_AIT3004_2-smart_attendance_system" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>Airbnb Data Processing (AIT2006)</h3>
-              <p>Pipeline làm sạch dữ liệu lớn cho các thành phố Đông Nam Á.</p>
-              <p class="mono">Trọng tâm: data pipelines và tự động hóa</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Data Pipelines</span>
-              <span class="tag">ETL</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/2526-LTXLDL-Project-AIT2006-2-4.2" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>BTL OOP - Group 10</h3>
-              <p>Đồ án lập trình hướng đối tượng với kiến trúc rõ ràng, có thể mở rộng.</p>
-              <p class="mono">Trọng tâm: thiết kế class và công cụ</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">OOP</span>
-              <span class="tag">Java</span>
-              <span class="tag">Design</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/BTL---OOP---Group-10" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>My Java Web DB</h3>
-              <p>Ứng dụng web Java kết nối cơ sở dữ liệu, đầy đủ CRUD.</p>
-              <p class="mono">Trọng tâm: backend và truy vấn DB</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">Java</span>
-              <span class="tag">Web</span>
-              <span class="tag">Database</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/my-java-web-db" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>AI Vision Controller</h3>
-              <p>Điều khiển và giám sát hệ thống qua computer vision.</p>
-              <p class="mono">Trọng tâm: AI vision và hệ thống</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">Computer Vision</span>
-              <span class="tag">AI</span>
-              <span class="tag">Automation</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/ai-vision-controller" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-
-          <article class="project-card reveal">
-            <div class="project-top">
-              <h3>Flappy Bird - NEAT</h3>
-              <p>Mô phỏng Flappy Bird với thuật toán NEAT tự động học.</p>
-              <p class="mono">Trọng tâm: AI/Genetic Algorithm</p>
-            </div>
-            <div class="project-tags">
-              <span class="tag">NEAT</span>
-              <span class="tag">AI</span>
-              <span class="tag">Game</span>
-            </div>
-            <div class="project-actions">
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Demo</a>
-              <a class="btn btn-secondary" href="https://github.com/LeVietThanh1412/flappy-bird-neat" target="_blank" rel="noopener">
-                <i class="fa-brands fa-github"></i> GitHub
-              </a>
-            </div>
-          </article>
-        </div>
+        <label class="search-box"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">Tìm dự án</span><input id="project-search" type="search" placeholder="Tìm dự án…" autocomplete="off"></label>
       </div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container contact-card reveal">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Sẵn sàng cho cơ hội mới</h2>
-          <p>Open to AI Engineer & DevOps collaborations and system design discussions.</p>
-        </div>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="mailto:thanhdevuetvnu2024@gmail.com">
-              <img src="icon/email_icon.webp" alt="Email" /> Email to me
-            </a>
-            
-            <a class="icon-btn" href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener" aria-label="GitHub">
-              <img src="icon/github_icon.webp" alt="GitHub" />
-            </a>
-            
-            <a class="icon-btn" href="https://leetcode.com/u/levietthanh1412/" target="_blank" rel="noopener" aria-label="LeetCode">
-              <img src="icon/leetcode_icon.webp" alt="LeetCode" />
-            </a>
-          </div>
+      <div class="project-list" id="project-list">
+        <!-- PROJECTS:START -->
+<article class="project-row" data-category="web" data-live="true" data-search="3D_Control WonderSnap / 3D Control Thế giới hạt 3D tương tác, điều khiển bằng cử chỉ bàn tay ngay trên trình duyệt. JavaScript web">
+  <span class="project-number" aria-hidden="true">01</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/3D_Control" target="_blank" rel="noopener">WonderSnap / 3D Control<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Thế giới hạt 3D tương tác, điều khiển bằng cử chỉ bàn tay ngay trên trình duyệt.</p><div class="project-meta"><span>3D_Control</span></div></div>
+  <span class="language"><span class="language-dot lang-javascript"></span>JavaScript</span>
+  <div class="project-links"><a class="live-link" href="https://thanhtech.cloud/3D_Control/" target="_blank" rel="noopener" aria-label="Mở web WonderSnap / 3D Control">Web ↗</a><a class="source-link" href="https://github.com/LeVietThanh1412/3D_Control" target="_blank" rel="noopener" aria-label="Mã nguồn WonderSnap / 3D Control">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="true" data-search="VietPhucRemix Việt Phục Remix Khám phá và phối trang phục truyền thống Việt Nam theo phong cách của bạn. TypeScript web">
+  <span class="project-number" aria-hidden="true">02</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/VietPhucRemix" target="_blank" rel="noopener">Việt Phục Remix<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Khám phá và phối trang phục truyền thống Việt Nam theo phong cách của bạn.</p><div class="project-meta"><span>VietPhucRemix</span><span class="fork-label">FORK</span></div></div>
+  <span class="language"><span class="language-dot lang-typescript"></span>TypeScript</span>
+  <div class="project-links"><a class="live-link" href="https://thanhtech.cloud/VietPhucRemix/" target="_blank" rel="noopener" aria-label="Mở web Việt Phục Remix">Web ↗</a><a class="source-link" href="https://github.com/LeVietThanh1412/VietPhucRemix" target="_blank" rel="noopener" aria-label="Mã nguồn Việt Phục Remix">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="true" data-search="HeartForU Heart For U Một trái tim, hàng trăm hạt chuyển động. Thử nghiệm nhỏ với HTML Canvas. HTML web">
+  <span class="project-number" aria-hidden="true">03</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/HeartForU" target="_blank" rel="noopener">Heart For U<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Một trái tim, hàng trăm hạt chuyển động. Thử nghiệm nhỏ với HTML Canvas.</p><div class="project-meta"><span>HeartForU</span></div></div>
+  <span class="language"><span class="language-dot lang-html"></span>HTML</span>
+  <div class="project-links"><a class="live-link" href="https://thanhtech.cloud/HeartForU/" target="_blank" rel="noopener" aria-label="Mở web Heart For U">Web ↗</a><a class="source-link" href="https://github.com/LeVietThanh1412/HeartForU" target="_blank" rel="noopener" aria-label="Mã nguồn Heart For U">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="BTL-2526II_AIT3004_2-smart_attendance_system Smart Attendance System Điểm danh tự động bằng nhận diện khuôn mặt với YOLOv8, FaceNet và FastAPI. Python ai">
+  <span class="project-number" aria-hidden="true">04</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/BTL-2526II_AIT3004_2-smart_attendance_system" target="_blank" rel="noopener">Smart Attendance System<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Điểm danh tự động bằng nhận diện khuôn mặt với YOLOv8, FaceNet và FastAPI.</p><div class="project-meta"><span>BTL-2526II_AIT3004_2-smart_attendance_system</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/BTL-2526II_AIT3004_2-smart_attendance_system" target="_blank" rel="noopener" aria-label="Mã nguồn Smart Attendance System">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="vdt-2026-3d-gaussian-splatting 3D Gaussian Splatting Pipeline tái dựng và tối ưu không gian 3D thời gian thực cho ứng dụng AR. C++ ai">
+  <span class="project-number" aria-hidden="true">05</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/vdt-2026-3d-gaussian-splatting" target="_blank" rel="noopener">3D Gaussian Splatting<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Pipeline tái dựng và tối ưu không gian 3D thời gian thực cho ứng dụng AR.</p><div class="project-meta"><span>vdt-2026-3d-gaussian-splatting</span></div></div>
+  <span class="language"><span class="language-dot lang-c"></span>C++</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/vdt-2026-3d-gaussian-splatting" target="_blank" rel="noopener" aria-label="Mã nguồn 3D Gaussian Splatting">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="2526-LTXLDL-Project-AIT2006-2-4.2 Inside Airbnb / Data Pipeline Xử lý dữ liệu, kiểm tra chất lượng và trực quan hóa KPI từ dữ liệu Inside Airbnb. Jupyter Notebook ai">
+  <span class="project-number" aria-hidden="true">06</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/2526-LTXLDL-Project-AIT2006-2-4.2" target="_blank" rel="noopener">Inside Airbnb / Data Pipeline<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Xử lý dữ liệu, kiểm tra chất lượng và trực quan hóa KPI từ dữ liệu Inside Airbnb.</p><div class="project-meta"><span>2526-LTXLDL-Project-AIT2006-2-4.2</span></div></div>
+  <span class="language"><span class="language-dot lang-jupyter-notebook"></span>Jupyter Notebook</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/2526-LTXLDL-Project-AIT2006-2-4.2" target="_blank" rel="noopener" aria-label="Mã nguồn Inside Airbnb / Data Pipeline">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="TaiLieuHocUET Tài liệu học UET Tài liệu, bài tập và dự án trong hành trình học Trí tuệ nhân tạo tại UET. Jupyter Notebook ai">
+  <span class="project-number" aria-hidden="true">07</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/TaiLieuHocUET" target="_blank" rel="noopener">Tài liệu học UET<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Tài liệu, bài tập và dự án trong hành trình học Trí tuệ nhân tạo tại UET.</p><div class="project-meta"><span>TaiLieuHocUET</span><span aria-label="13 sao">☆ 13</span></div></div>
+  <span class="language"><span class="language-dot lang-jupyter-notebook"></span>Jupyter Notebook</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/TaiLieuHocUET" target="_blank" rel="noopener" aria-label="Mã nguồn Tài liệu học UET">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="flappy-bird-neat Flappy Bird / NEAT AI học chơi Flappy Bird bằng thuật toán tiến hóa NEAT. Python ai">
+  <span class="project-number" aria-hidden="true">08</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/flappy-bird-neat" target="_blank" rel="noopener">Flappy Bird / NEAT<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">AI học chơi Flappy Bird bằng thuật toán tiến hóa NEAT.</p><div class="project-meta"><span>flappy-bird-neat</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/flappy-bird-neat" target="_blank" rel="noopener" aria-label="Mã nguồn Flappy Bird / NEAT">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="hocgit hocgit Mã nguồn và tài liệu của dự án hocgit.  systems">
+  <span class="project-number" aria-hidden="true">09</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/hocgit" target="_blank" rel="noopener">hocgit<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án hocgit.</p><div class="project-meta"><span>hocgit</span><span class="fork-label">FORK</span></div></div>
+  <span class="language"><span class="language-dot lang-"></span>—</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/hocgit" target="_blank" rel="noopener" aria-label="Mã nguồn hocgit">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="Encode_Decode_NLP Encode / Decode NLP Mã nguồn và tài liệu của dự án Encode_Decode_NLP. Jupyter Notebook ai">
+  <span class="project-number" aria-hidden="true">10</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/Encode_Decode_NLP" target="_blank" rel="noopener">Encode / Decode NLP<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án Encode_Decode_NLP.</p><div class="project-meta"><span>Encode_Decode_NLP</span></div></div>
+  <span class="language"><span class="language-dot lang-jupyter-notebook"></span>Jupyter Notebook</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/Encode_Decode_NLP" target="_blank" rel="noopener" aria-label="Mã nguồn Encode / Decode NLP">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="VTX_ShipProject VTX Ship Project Dự án Thiết kế tàu chiến sử dụng Unreal Engine 5 C# systems">
+  <span class="project-number" aria-hidden="true">11</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/VTX_ShipProject" target="_blank" rel="noopener">VTX Ship Project<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Dự án Thiết kế tàu chiến sử dụng Unreal Engine 5</p><div class="project-meta"><span>VTX_ShipProject</span></div></div>
+  <span class="language"><span class="language-dot lang-c"></span>C#</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/VTX_ShipProject" target="_blank" rel="noopener" aria-label="Mã nguồn VTX Ship Project">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="false" data-search="For_H For H Mã nguồn và tài liệu của dự án For_H. JavaScript web">
+  <span class="project-number" aria-hidden="true">12</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/For_H" target="_blank" rel="noopener">For H<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án For_H.</p><div class="project-meta"><span>For_H</span></div></div>
+  <span class="language"><span class="language-dot lang-javascript"></span>JavaScript</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/For_H" target="_blank" rel="noopener" aria-label="Mã nguồn For H">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="WinLic WinLic Windows Licensing &amp; Information Utility  systems">
+  <span class="project-number" aria-hidden="true">13</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/WinLic" target="_blank" rel="noopener">WinLic<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Windows Licensing &amp; Information Utility</p><div class="project-meta"><span>WinLic</span><span class="fork-label">FORK</span></div></div>
+  <span class="language"><span class="language-dot lang-"></span>—</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/WinLic" target="_blank" rel="noopener" aria-label="Mã nguồn WinLic">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="BTL-AIT2004-2-Peguin Peguin / AIT2004 Mã nguồn và tài liệu của dự án BTL-AIT2004-2-Peguin. Python ai">
+  <span class="project-number" aria-hidden="true">14</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/BTL-AIT2004-2-Peguin" target="_blank" rel="noopener">Peguin / AIT2004<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án BTL-AIT2004-2-Peguin.</p><div class="project-meta"><span>BTL-AIT2004-2-Peguin</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/BTL-AIT2004-2-Peguin" target="_blank" rel="noopener" aria-label="Mã nguồn Peguin / AIT2004">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="concurrency-vdt Concurrency / VDT Mã nguồn và tài liệu của dự án concurrency-vdt.  systems">
+  <span class="project-number" aria-hidden="true">15</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/concurrency-vdt" target="_blank" rel="noopener">Concurrency / VDT<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án concurrency-vdt.</p><div class="project-meta"><span>concurrency-vdt</span></div></div>
+  <span class="language"><span class="language-dot lang-"></span>—</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/concurrency-vdt" target="_blank" rel="noopener" aria-label="Mã nguồn Concurrency / VDT">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="deep-learning-project Deep Learning Project Mã nguồn và tài liệu của dự án deep-learning-project. Python ai">
+  <span class="project-number" aria-hidden="true">16</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/deep-learning-project" target="_blank" rel="noopener">Deep Learning Project<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án deep-learning-project.</p><div class="project-meta"><span>deep-learning-project</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/deep-learning-project" target="_blank" rel="noopener" aria-label="Mã nguồn Deep Learning Project">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="BTL---OOP---Group-10 OOP / Group 10 Mã nguồn và tài liệu của dự án BTL---OOP---Group-10. Java systems">
+  <span class="project-number" aria-hidden="true">17</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/BTL---OOP---Group-10" target="_blank" rel="noopener">OOP / Group 10<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án BTL---OOP---Group-10.</p><div class="project-meta"><span>BTL---OOP---Group-10</span></div></div>
+  <span class="language"><span class="language-dot lang-java"></span>Java</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/BTL---OOP---Group-10" target="_blank" rel="noopener" aria-label="Mã nguồn OOP / Group 10">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="false" data-search="timetable-manager Timetable Manager Mã nguồn và tài liệu của dự án timetable-manager. Python web">
+  <span class="project-number" aria-hidden="true">18</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/timetable-manager" target="_blank" rel="noopener">Timetable Manager<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án timetable-manager.</p><div class="project-meta"><span>timetable-manager</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/timetable-manager" target="_blank" rel="noopener" aria-label="Mã nguồn Timetable Manager">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="cleaning-robot-rl Cleaning Robot / RL Mã nguồn và tài liệu của dự án cleaning-robot-rl. Python ai">
+  <span class="project-number" aria-hidden="true">19</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/cleaning-robot-rl" target="_blank" rel="noopener">Cleaning Robot / RL<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án cleaning-robot-rl.</p><div class="project-meta"><span>cleaning-robot-rl</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/cleaning-robot-rl" target="_blank" rel="noopener" aria-label="Mã nguồn Cleaning Robot / RL">↗</a></div>
+</article>
+<article class="project-row" data-category="ai" data-live="false" data-search="ai-vision-controller AI Vision Controller Thử nghiệm điều khiển và tương tác thông qua Computer Vision. Python ai">
+  <span class="project-number" aria-hidden="true">20</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/ai-vision-controller" target="_blank" rel="noopener">AI Vision Controller<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Thử nghiệm điều khiển và tương tác thông qua Computer Vision.</p><div class="project-meta"><span>ai-vision-controller</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/ai-vision-controller" target="_blank" rel="noopener" aria-label="Mã nguồn AI Vision Controller">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="false" data-search="api-caller-gemini2.o Gemini API Caller Mã nguồn và tài liệu của dự án api-caller-gemini2.o. JavaScript web">
+  <span class="project-number" aria-hidden="true">21</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/api-caller-gemini2.o" target="_blank" rel="noopener">Gemini API Caller<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án api-caller-gemini2.o.</p><div class="project-meta"><span>api-caller-gemini2.o</span></div></div>
+  <span class="language"><span class="language-dot lang-javascript"></span>JavaScript</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/api-caller-gemini2.o" target="_blank" rel="noopener" aria-label="Mã nguồn Gemini API Caller">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="BTL-SQL SQL Project Mã nguồn và tài liệu của dự án BTL-SQL. Python systems">
+  <span class="project-number" aria-hidden="true">22</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/BTL-SQL" target="_blank" rel="noopener">SQL Project<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án BTL-SQL.</p><div class="project-meta"><span>BTL-SQL</span></div></div>
+  <span class="language"><span class="language-dot lang-python"></span>Python</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/BTL-SQL" target="_blank" rel="noopener" aria-label="Mã nguồn SQL Project">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="RPG RPG Mã nguồn và tài liệu của dự án RPG. C# systems">
+  <span class="project-number" aria-hidden="true">23</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/RPG" target="_blank" rel="noopener">RPG<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án RPG.</p><div class="project-meta"><span>RPG</span></div></div>
+  <span class="language"><span class="language-dot lang-c"></span>C#</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/RPG" target="_blank" rel="noopener" aria-label="Mã nguồn RPG">↗</a></div>
+</article>
+<article class="project-row" data-category="web" data-live="false" data-search="CompanyWeb Company Web Mã nguồn và tài liệu của dự án CompanyWeb. HTML web">
+  <span class="project-number" aria-hidden="true">24</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/CompanyWeb" target="_blank" rel="noopener">Company Web<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">Mã nguồn và tài liệu của dự án CompanyWeb.</p><div class="project-meta"><span>CompanyWeb</span></div></div>
+  <span class="language"><span class="language-dot lang-html"></span>HTML</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/CompanyWeb" target="_blank" rel="noopener" aria-label="Mã nguồn Company Web">↗</a></div>
+</article>
+<article class="project-row" data-category="systems" data-live="false" data-search="skills-introduction-to-github skills introduction to github My clone repository  systems">
+  <span class="project-number" aria-hidden="true">25</span>
+  <div class="project-info"><h3 class="project-title"><a href="https://github.com/LeVietThanh1412/skills-introduction-to-github" target="_blank" rel="noopener">skills introduction to github<span class="title-arrow" aria-hidden="true">↗</span></a></h3><p class="project-description">My clone repository</p><div class="project-meta"><span>skills-introduction-to-github</span></div></div>
+  <span class="language"><span class="language-dot lang-"></span>—</span>
+  <div class="project-links"><a class="source-link" href="https://github.com/LeVietThanh1412/skills-introduction-to-github" target="_blank" rel="noopener" aria-label="Mã nguồn skills introduction to github">↗</a></div>
+</article>
+        <!-- PROJECTS:END -->
       </div>
+      <div class="show-more-wrap"><button class="show-more" id="show-more" type="button" aria-controls="project-list" hidden>Xem thêm dự án <span aria-hidden="true">↓</span></button></div>
+      <p class="empty-state" id="empty-state" hidden>Chưa tìm thấy dự án phù hợp. Thử từ khóa khác nhé.</p>
+      <div class="project-footnote"><p id="result-count" role="status" aria-live="polite"></p><p><span class="sync-icon" aria-hidden="true">↻</span> Đồng bộ từ GitHub <span id="sync-date"><!-- SYNC:START -->
+18.10.2026
+        <!-- SYNC:END --></span></p></div>
     </section>
+    <section class="about section container" id="about" aria-labelledby="about-title">
+      <div class="section-top"><p class="eyebrow"><span>03 /</span> A LITTLE CONTEXT</p><span class="section-note">Con người đằng sau những dòng code</span></div>
+      <div class="about-layout"><div><h2 id="about-title">Tò mò là điểm bắt đầu.<br><span>Làm được mới là niềm vui.</span></h2><p>Mình học Trí tuệ nhân tạo tại Đại học Công nghệ, ĐHQGHN. Mối quan tâm của mình nằm ở giao điểm giữa Computer Vision, lập trình hệ thống và việc đưa ứng dụng vào vận hành.</p><p>Từ mô hình nhận diện khuôn mặt, tái dựng không gian 3D đến một chiếc web nho nhỏ — mỗi dự án là một cơ hội để hiểu sâu hơn và làm tốt hơn.</p><a class="text-link" href="CV.pdf" target="_blank" rel="noopener">Thêm về mình trong CV <span aria-hidden="true">↗</span></a></div><div class="expertise"><div><span class="expertise-number">01</span><div><h3>AI & Computer Vision</h3><p>Python · PyTorch · YOLO · FaceNet · 3DGS</p></div><span aria-hidden="true">↗</span></div><div><span class="expertise-number">02</span><div><h3>Systems & Infrastructure</h3><p>C++ · Linux · Docker · Nginx · Cloudflare</p></div><span aria-hidden="true">↗</span></div><div><span class="expertise-number">03</span><div><h3>Build for the web</h3><p>FastAPI · Vue · Vite · GitHub Actions</p></div><span aria-hidden="true">↗</span></div></div></div>
+    </section>
+    <section class="contact" id="contact" aria-labelledby="contact-title"><div class="container contact-inner"><div class="contact-top"><p class="eyebrow">04 / WHAT'S NEXT?</p><span class="contact-star" aria-hidden="true">✳</span></div><h2 id="contact-title">Một ý tưởng hay<br>bắt đầu từ <a href="mailto:thanhdevuetvnu2024@gmail.com">lời chào<span aria-hidden="true">↗</span></a></h2><div class="contact-bottom"><a class="contact-email" href="mailto:thanhdevuetvnu2024@gmail.com">thanhdevuetvnu2024@gmail.com <span aria-hidden="true">↗</span></a><div class="social-links"><a href="https://github.com/LeVietThanh1412" target="_blank" rel="noopener">GitHub ↗</a><a href="https://leetcode.com/u/levietthanh1412/" target="_blank" rel="noopener">LeetCode ↗</a></div></div></div></section>
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>Deployed securely via Cloudflare Tunnels & GitHub Pages.</p>
-      <p class="mono">Domain: thanhtech.cloud</p>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
+  <footer class="container site-footer"><a class="wordmark" href="#top">thanh<span>tech</span><i aria-hidden="true">↗</i></a><p>© <span id="year">2026</span> Lê Việt Thành</p><a href="#top">Về đầu trang ↑</a></footer>
 </body>
 </html>

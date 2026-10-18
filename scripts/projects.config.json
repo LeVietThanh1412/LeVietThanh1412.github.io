@@ -1,0 +1,70 @@
+{
+  "owner": "LeVietThanh1412",
+  "exclude": ["LeVietThanh1412", "LeVietThanh1412.github.io"],
+  "featured": ["3D_Control", "VietPhucRemix", "HeartForU"],
+  "pinned": ["BTL-2526II_AIT3004_2-smart_attendance_system", "vdt-2026-3d-gaussian-splatting", "2526-LTXLDL-Project-AIT2006-2-4.2", "TaiLieuHocUET", "flappy-bird-neat"],
+  "overrides": {
+    "3D_Control": {
+      "title": "WonderSnap / 3D Control",
+      "description": "Thế giới hạt 3D tương tác, điều khiển bằng cử chỉ bàn tay ngay trên trình duyệt.",
+      "category": "web",
+      "art": "3d"
+    },
+    "VietPhucRemix": {
+      "title": "Việt Phục Remix",
+      "description": "Khám phá và phối trang phục truyền thống Việt Nam theo phong cách của bạn.",
+      "category": "web",
+      "art": "fashion"
+    },
+    "HeartForU": {
+      "title": "Heart For U",
+      "description": "Một trái tim, hàng trăm hạt chuyển động. Thử nghiệm nhỏ với HTML Canvas.",
+      "category": "web",
+      "art": "heart"
+    },
+    "BTL-2526II_AIT3004_2-smart_attendance_system": {
+      "title": "Smart Attendance System",
+      "description": "Điểm danh tự động bằng nhận diện khuôn mặt với YOLOv8, FaceNet và FastAPI.",
+      "category": "ai"
+    },
+    "vdt-2026-3d-gaussian-splatting": {
+      "title": "3D Gaussian Splatting",
+      "description": "Pipeline tái dựng và tối ưu không gian 3D thời gian thực cho ứng dụng AR.",
+      "category": "ai"
+    },
+    "2526-LTXLDL-Project-AIT2006-2-4.2": {
+      "title": "Inside Airbnb / Data Pipeline",
+      "description": "Xử lý dữ liệu, kiểm tra chất lượng và trực quan hóa KPI từ dữ liệu Inside Airbnb.",
+      "category": "ai"
+    },
+    "TaiLieuHocUET": {
+      "title": "Tài liệu học UET",
+      "description": "Tài liệu, bài tập và dự án trong hành trình học Trí tuệ nhân tạo tại UET.",
+      "category": "ai"
+    },
+    "flappy-bird-neat": {
+      "title": "Flappy Bird / NEAT",
+      "description": "AI học chơi Flappy Bird bằng thuật toán tiến hóa NEAT.",
+      "category": "ai"
+    },
+    "VTX_ShipProject": {"title": "VTX Ship Project", "category": "systems"},
+    "Encode_Decode_NLP": {"title": "Encode / Decode NLP", "category": "ai"},
+    "ai-vision-controller": {
+      "title": "AI Vision Controller",
+      "description": "Thử nghiệm điều khiển và tương tác thông qua Computer Vision.",
+      "category": "ai"
+    },
+    "cleaning-robot-rl": {"title": "Cleaning Robot / RL", "category": "ai"},
+    "deep-learning-project": {"title": "Deep Learning Project", "category": "ai"},
+    "concurrency-vdt": {"title": "Concurrency / VDT", "category": "systems"},
+    "BTL---OOP---Group-10": {"title": "OOP / Group 10", "category": "systems"},
+    "BTL-AIT2004-2-Peguin": {"title": "Peguin / AIT2004", "category": "ai"},
+    "BTL-SQL": {"title": "SQL Project", "category": "systems"},
+    "timetable-manager": {"title": "Timetable Manager", "category": "web"},
+    "api-caller-gemini2.o": {"title": "Gemini API Caller", "category": "web"},
+    "RPG": {"title": "RPG", "category": "systems"},
+    "WinLic": {"title": "WinLic", "category": "systems"},
+    "CompanyWeb": {"title": "Company Web", "category": "web"},
+    "For_H": {"title": "For H", "category": "web"}
+  }
+}
