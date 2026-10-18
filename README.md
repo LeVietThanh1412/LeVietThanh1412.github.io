@@ -17,7 +17,7 @@ Mở `http://localhost:4173`. Danh sách dự án có sẵn trong HTML nên vẫ
 python scripts/sync_projects.py
 ```
 
-Script phân trang toàn bộ repo **public** của `LeVietThanh1412`, bao gồm fork (có nhãn), và bỏ hai repo profile/portfolio. Nó lấy tên, mô tả, ngôn ngữ, sao, trạng thái archive và Pages. Repo bật Pages sẽ tự có URL `https://thanhtech.cloud/<repo>/`, hoặc domain riêng từ `CNAME`. Repo có homepage dùng URL đó nếu chưa có Pages. Chỉ link trả về HTTP 200 được hiển thị dưới dạng bản web; những repo còn lại vẫn có link mã nguồn. Repo private không được công bố.
+Script phân trang toàn bộ repo **public** của `LeVietThanh1412`, bao gồm fork (có nhãn), và bỏ các repo trong danh sách `exclude` tại `scripts/projects.config.json`. Danh sách này gồm profile/portfolio và những dự án chủ website đã chọn ẩn; chúng không xuất hiện lại khi tự đồng bộ. Nó lấy tên, mô tả, ngôn ngữ, sao, trạng thái archive và Pages. Repo bật Pages sẽ tự có URL `https://thanhtech.cloud/<repo>/`, hoặc domain riêng từ `CNAME`. Repo có homepage dùng URL đó nếu chưa có Pages. Chỉ link trả về HTTP 200 được hiển thị dưới dạng bản web; những repo còn lại vẫn có link mã nguồn. Repo private không được công bố.
 
 Tùy chỉnh tên hiển thị, mô tả, nhóm, thứ tự demo (`featured`), dự án ưu tiên (`pinned`) hoặc thêm `demo_url` tại `scripts/projects.config.json`. Repo mới không cần khai báo ở đây. Thứ tự: demo và dự án ưu tiên trước, các repo khác theo thời gian push gần nhất. Giao diện hiện 8 dự án mỗi lượt, có nút xem thêm; tìm kiếm và bộ lọc áp dụng trên toàn bộ danh sách. Mô tả trống dùng câu dự phòng; nên thêm description trên GitHub để nội dung hữu ích hơn.
 

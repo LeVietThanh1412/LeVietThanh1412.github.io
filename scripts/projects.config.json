@@ -1,6 +1,22 @@
 {
   "owner": "LeVietThanh1412",
-  "exclude": ["LeVietThanh1412", "LeVietThanh1412.github.io"],
+  "exclude": [
+    "LeVietThanh1412",
+    "LeVietThanh1412.github.io",
+    "hocgit",
+    "Encode_Decode_NLP",
+    "For_H",
+    "WinLic",
+    "concurrency-vdt",
+    "timetable-manager",
+    "cleaning-robot-rl",
+    "ai-vision-controller",
+    "api-caller-gemini2.o",
+    "BTL-SQL",
+    "RPG",
+    "CompanyWeb",
+    "skills-introduction-to-github"
+  ],
   "featured": ["3D_Control", "VietPhucRemix", "HeartForU"],
   "pinned": ["BTL-2526II_AIT3004_2-smart_attendance_system", "vdt-2026-3d-gaussian-splatting", "2526-LTXLDL-Project-AIT2006-2-4.2", "TaiLieuHocUET", "flappy-bird-neat"],
   "overrides": {
