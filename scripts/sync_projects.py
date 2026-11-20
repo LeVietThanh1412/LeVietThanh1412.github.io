@@ -120,7 +120,10 @@ def collect(config):
 
     with ThreadPoolExecutor(max_workers=6) as pool:
         projects = list(pool.map(project, included))
-    priority = list(dict.fromkeys(config["featured"] + config.get("pinned", [])))
+    extras = config.get("extra_projects", [])
+    existing_names = {p["name"] for p in projects}
+    projects.extend(extra for extra in extras if extra["name"] not in existing_names)
+    priority = list(dict.fromkeys(config["featured"] + config.get("pinned", []) + [p["name"] for p in extras]))
     order = {name: index for index, name in enumerate(priority)}
     projects.sort(key=lambda p: p.get("pushed_at") or "", reverse=True)
     projects.sort(key=lambda p: order.get(p["name"], len(order)))
@@ -143,7 +146,8 @@ def render_project(project, index):
     title, description, url = escape(p["title"]), escape(p["description"]), escape(p["url"], quote=True)
     search = escape(" ".join([p["name"], p["title"], p["description"], p["language"], p["category"]]), quote=True)
     live = bool(p["demo_url"]) and p["demo_status"] == "ok"
-    live_link = f'<a class="live-link" href="{escape(p["demo_url"], quote=True)}" target="_blank" rel="noopener" aria-label="Mở web {title}">Web ↗</a>' if live else ""
+    live_label = escape(p.get("live_label", "Web ↗"))
+    live_link = f'<a class="live-link" href="{escape(p["demo_url"], quote=True)}" target="_blank" rel="noopener" aria-label="{live_label.removesuffix(" ↗")} {title}">{live_label}</a>' if live else ""
     tags = '<span class="fork-label">FORK</span>' if p["fork"] else ""
     if p["archived"]:
         tags += '<span class="fork-label">ARCHIVED</span>'
@@ -195,6 +199,13 @@ def main():
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
     if args.offline:
         data = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
+        existing_names = {p["name"] for p in data["projects"]}
+        extras = config.get("extra_projects", [])
+        data["projects"].extend(extra for extra in extras if extra["name"] not in existing_names)
+        priority = list(dict.fromkeys(config["featured"] + config.get("pinned", []) + [p["name"] for p in extras]))
+        order = {name: index for index, name in enumerate(priority)}
+        data["projects"].sort(key=lambda p: p.get("pushed_at") or "", reverse=True)
+        data["projects"].sort(key=lambda p: order.get(p["name"], len(order)))
     else:
         # A failed sync must fail the build, preserving the previous deployment.
         data = collect(config)

@@ -17,8 +17,27 @@
     "CompanyWeb",
     "skills-introduction-to-github"
   ],
-  "featured": ["3D_Control", "VietPhucRemix", "HeartForU"],
+  "featured": ["3D_Control", "VietPhucRemix", "HeartForU", "swarm-cursors"],
   "pinned": ["BTL-2526II_AIT3004_2-smart_attendance_system", "vdt-2026-3d-gaussian-splatting", "2526-LTXLDL-Project-AIT2006-2-4.2", "TaiLieuHocUET", "flappy-bird-neat"],
+  "extra_projects": [
+    {
+      "name": "swarm-cursors",
+      "title": "Swarm Rebuild",
+      "description": "Chrome extension biến mọi trang web thành một canvas để đàn cursor multiplayer dựng lại từng lớp theo thời gian thực.",
+      "url": "https://github.com/LeVietThanh1412/LeVietThanh1412.github.io/tree/main/swarm-cursors",
+      "language": "Chrome Extension",
+      "category": "web",
+      "stars": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "",
+      "has_pages": false,
+      "demo_url": "https://chromewebstore.google.com/detail/swarm-rebuild/diaeaocnhdhbknkbfbnkjikfcgokainm",
+      "demo_status": "ok",
+      "art": "default",
+      "live_label": "Cài đặt ↗"
+    }
+  ],
   "overrides": {
     "3D_Control": {
       "title": "WonderSnap / 3D Control",

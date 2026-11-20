@@ -106,6 +106,31 @@ class CatalogTests(unittest.TestCase):
             data = sync.collect(config)
         self.assertEqual([p["name"] for p in data["projects"]], ["demo", "important", "newest"])
 
+    def test_extra_projects_are_kept_and_prioritized(self):
+        config = deepcopy(CONFIG)
+        config["extra_projects"] = [{
+            "name": "extension",
+            "title": "Extension",
+            "description": "A browser extension.",
+            "url": "https://github.com/example/site/tree/main/extension",
+            "language": "Chrome Extension",
+            "category": "web",
+            "stars": 0,
+            "fork": False,
+            "archived": False,
+            "pushed_at": "",
+            "has_pages": False,
+            "demo_url": "https://chromewebstore.google.com/detail/example",
+            "demo_status": "ok",
+            "art": "default",
+            "live_label": "Cài đặt ↗",
+        }]
+        config["featured"] = ["extension"]
+        with patch.object(sync, "request", return_value=(json.dumps([repo("newest")]).encode(), 200, "")):
+            data = sync.collect(config)
+        self.assertEqual([p["name"] for p in data["projects"]], ["extension", "newest"])
+        self.assertIn("Cài đặt ↗", sync.render_project(data["projects"][0], 1))
+
 
 if __name__ == "__main__":
     unittest.main()
