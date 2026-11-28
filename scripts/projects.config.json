@@ -17,9 +17,26 @@
     "CompanyWeb",
     "skills-introduction-to-github"
   ],
-  "featured": ["3D_Control", "VietPhucRemix", "HeartForU", "swarm-cursors"],
+  "featured": ["3D_Control", "VietPhucRemix", "HeartForU", "dynamicview", "swarm-cursors"],
   "pinned": ["BTL-2526II_AIT3004_2-smart_attendance_system", "vdt-2026-3d-gaussian-splatting", "2526-LTXLDL-Project-AIT2006-2-4.2", "TaiLieuHocUET", "flappy-bird-neat"],
   "extra_projects": [
+    {
+      "name": "dynamicview",
+      "title": "DynamicView 3DGS",
+      "description": "Mở Gaussian Splatting, PLY, GLB và USDZ trong trình duyệt. Chỉnh ánh sáng, xem bóng và đặt model bằng camera AR trên thiết bị hỗ trợ.",
+      "url": "https://github.com/LeVietThanh1412/LeVietThanh1412.github.io/tree/main/tools/dynamicview",
+      "language": "JavaScript",
+      "category": "web",
+      "stars": 0,
+      "fork": false,
+      "archived": false,
+      "pushed_at": "",
+      "has_pages": true,
+      "demo_url": "https://thanhtech.cloud/viewer/",
+      "demo_status": "ok",
+      "art": "3d",
+      "live_label": "Mở viewer ↗"
+    },
     {
       "name": "swarm-cursors",
       "title": "Swarm Rebuild",

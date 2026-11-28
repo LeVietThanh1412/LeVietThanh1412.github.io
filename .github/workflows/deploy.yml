@@ -26,6 +26,17 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: tools/dynamicview/package-lock.json
+      - name: Verify DynamicView
+        working-directory: tools/dynamicview
+        run: |
+          npm ci
+          npm test
       - name: Sync public GitHub projects
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -34,6 +45,9 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Prepare public website
         run: python scripts/build_site.py
+      - name: Build 3D viewer
+        working-directory: tools/dynamicview
+        run: npm run build -- ../../_site/viewer
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
