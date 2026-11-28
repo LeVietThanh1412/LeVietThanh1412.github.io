@@ -35,7 +35,7 @@ export class Stage {
     this.controls.addEventListener('change', () => { this.dirty = true; });
     this.controls.enableDamping = true;
     this.controls.zoomToCursor = true;
-    this.controls.minDistance = 0.12;
+    this.controls.minDistance = 0.025;
     this.controls.maxDistance = 28;
     this.controls.autoRotateSpeed = 0.75;
     this.flight = new FlyNavigation(this.camera, this.renderer.domElement, viewport, () => { this.dirty = true; });
@@ -94,6 +94,7 @@ export class Stage {
     }
     if (this.spark) this.spark.visible = asset.kind === 'splats';
     this.fit();
+    this.updateZoomLimits();
     this.reset();
     return asset;
   }
@@ -111,6 +112,11 @@ export class Stage {
     this.pivot.position.copy(center.multiplyScalar(-scale));
     this.halfHeight = size.y * scale / 2;
     this.viewSize = size.multiplyScalar(scale);
+    this.pivot.updateMatrix();
+    const focus = this.asset.focusBounds?.clone().applyMatrix4(this.pivot.matrix);
+    this.focusCenter = focus?.getCenter(new THREE.Vector3());
+    this.focusSize = focus?.getSize(new THREE.Vector3());
+    this.flight.travelScale = this.focusSize ? THREE.MathUtils.clamp(this.focusSize.length() / 0.7, 0.035, 1) : 1;
     if (this.asset.kind === 'points') this.asset.object.material.size = 0.013 / scale;
     this.updateGround();
     this.dirty = true;
@@ -118,10 +124,14 @@ export class Stage {
 
   reset() {
     if (this.mode === 'xr') return;
-    this.controls.target.set(0, 0, 0);
+    const target = this.controls.target;
+    if (this.focusCenter) target.copy(this.focusCenter);
+    else target.set(0, 0, 0);
     const fit = Math.min(this.camera.aspect || 1, 1.25);
-    const distance = this.asset?.kind === 'mesh' ? this.meshDistance() : 5.5 / fit;
-    this.camera.position.copy(defaults).multiplyScalar(distance);
+    let distance = 5.5 / fit;
+    if (this.focusSize) distance = this.frameDistance(this.focusSize, 0.008);
+    else if (this.asset?.kind === 'mesh') distance = this.frameDistance(this.viewSize, 3.7);
+    this.camera.position.copy(target).addScaledVector(defaults, distance);
     if (this.flight.active) {
       this.flight.clearInput();
       this.camera.lookAt(this.controls.target);
@@ -132,29 +142,36 @@ export class Stage {
     this.dirty = true;
   }
 
+  updateZoomLimits() {
+    const splats = this.asset?.kind === 'splats';
+    this.controls.minDistance = splats ? 0.003 : 0.025;
+    this.controls.zoomSpeed = splats ? 1.65 : 1;
+    this.camera.near = this.mode === 'xr' ? 0.02 : splats ? 0.001 : this.flight.active ? 0.004 : 0.008;
+    this.camera.updateProjectionMatrix();
+  }
+
   setFlight(active) {
     if (this.flight.active === active || (active && this.mode !== 'orbit')) return;
     if (active) this.controls.autoRotate = false;
     this.controls.enabled = this.mode !== 'xr' && !active;
-    this.camera.near = active ? 0.004 : 0.02;
-    this.camera.updateProjectionMatrix();
     this.flight.setActive(active);
+    this.updateZoomLimits();
     if (!active && this.controls.enabled) {
       this.camera.getWorldDirection(this.sight);
       this.controls.target.sub(this.camera.position);
-      const depth = THREE.MathUtils.clamp(this.controls.target.dot(this.sight), 0.25, this.controls.maxDistance);
+      const depth = THREE.MathUtils.clamp(this.controls.target.dot(this.sight), this.controls.minDistance, this.controls.maxDistance);
       this.controls.target.copy(this.camera.position).addScaledVector(this.sight, depth);
       this.controls.update();
     }
     this.dirty = true;
   }
 
-  meshDistance() {
-    const half = this.viewSize.clone().multiplyScalar(0.5);
+  frameDistance(size, minimum) {
+    const half = size.clone().multiplyScalar(0.5);
     const corner = new THREE.Vector3();
     const vertical = Math.tan(THREE.MathUtils.degToRad(this.camera.fov / 2)) * 0.86;
     const horizontal = vertical * this.camera.aspect;
-    let distance = 3.7;
+    let distance = minimum;
     for (let i = 0; i < 8; i++) {
       corner.set(i & 1 ? half.x : -half.x, i & 2 ? half.y : -half.y, i & 4 ? half.z : -half.z);
       const width = Math.abs(corner.dot(viewRight)) / horizontal;
@@ -165,13 +182,20 @@ export class Stage {
   }
 
   rotate() {
+    const previous = this.focusCenter;
     this.flip = !this.flip;
     this.fit();
+    if (previous && this.focusCenter) {
+      const offset = this.sight.subVectors(this.focusCenter, previous);
+      this.camera.position.add(offset);
+      this.controls.target.add(offset);
+    }
   }
 
   setMode(mode) {
     this.mode = mode;
     if (mode !== 'orbit') this.setFlight(false);
+    this.updateZoomLimits();
     this.viewport.classList.toggle('camera-live', mode === 'camera');
     document.body.classList.toggle('in-xr', mode === 'xr');
     this.updateGround();

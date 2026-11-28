@@ -6,6 +6,7 @@ import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { PLYLoader } from 'three/addons/loaders/PLYLoader.js';
 import { USDLoader } from 'three/addons/loaders/USDLoader.js';
 import { inspectPly } from './ply.js';
+import { findSplatFocus } from './splat-focus.js';
 
 const root = new URL('../vendor/three/examples/jsm/libs/', import.meta.url).pathname;
 const manager = new THREE.LoadingManager().setURLModifier((url) => {
@@ -47,6 +48,7 @@ export class ModelLoader {
     let mixer;
     let SparkRenderer;
     let bounds;
+    let focusBounds;
     let usdzBlob;
     let exportable = false;
     try {
@@ -56,7 +58,9 @@ export class ModelLoader {
         signal.throwIfAborted();
         object = new spark.SplatMesh({ fileBytes: buffer, fileName: model.name, raycastable: false });
         await object.initialized;
+        signal.throwIfAborted();
         bounds = object.getBoundingBox();
+        if (!model.sample) focusBounds = findSplatFocus(object, rotationX);
       } else if (model.type === 'glb') {
         const asset = await this.gltf.parseAsync(buffer.buffer, '');
         object = asset.scene;
@@ -78,7 +82,7 @@ export class ModelLoader {
       bounds ??= new THREE.Box3().setFromObject(object);
       const length = bounds.getSize(new THREE.Vector3()).length();
       if (!Number.isFinite(length) || bounds.isEmpty()) throw new Error('Không tìm thấy hình học hợp lệ.');
-      return { ...model, object, bounds, kind, rotationX, SparkRenderer, mixer, exportable, usdzBlob };
+      return { ...model, object, bounds, focusBounds, kind, rotationX, SparkRenderer, mixer, exportable, usdzBlob };
     } catch (error) {
       if (object) disposeModel({ object, kind, mixer });
       throw error;

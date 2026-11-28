@@ -15,6 +15,7 @@ export class FlyNavigation {
     this.canvas = canvas;
     this.redraw = redraw;
     this.active = false;
+    this.travelScale = 1;
     this.slow = false;
     this.keys = new Set();
     this.buttons = new Map();
@@ -79,7 +80,8 @@ export class FlyNavigation {
   }
 
   get speedScale() {
-    return this.slow || this.keys.has('ShiftLeft') || this.keys.has('ShiftRight') ? slowScale : 1;
+    const multiplier = this.slow || this.keys.has('ShiftLeft') || this.keys.has('ShiftRight') ? slowScale : 1;
+    return this.travelScale * multiplier;
   }
 
   setActive(active) {

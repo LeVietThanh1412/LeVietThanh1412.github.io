@@ -19,6 +19,7 @@ npm run build
 - **3D** · Kéo chuột trái để xoay, kéo chuột phải để dịch khung hình, cuộn để zoom về phía con trỏ. Trên điện thoại, rê hai ngón để dịch và chụm để zoom.
 - **Bay** · Kéo trong khung xem để đổi hướng nhìn, dùng **WASD** để tiến, lùi và dịch ngang, dùng **Q/E** để xuống hoặc lên. Cuộn để tiến lùi theo hướng đang nhìn. Giữ **Shift** để đi chậm khi soi cận cảnh.
 - Trên điện thoại, bấm **Bay**, kéo một ngón để nhìn rồi giữ các nút di chuyển. Bật **Chậm** để chỉnh từng chút. Nút **◎** đưa camera về góc nhìn ban đầu. Bấm **3D** để tiếp tục xoay quanh điểm đang nhìn.
+- Với cảnh 3DGS có nhiều vùng rìa, viewer mở gần phần giữa có dữ liệu dày hơn. **◎** trở về góc cận này và có thể cuộn lùi để xem rộng hơn.
 
 ## Chiều model, ánh sáng và bóng
 
