@@ -4,15 +4,21 @@ Viewer cho Gaussian Splatting, PLY, GLB và USDZ. Bản web mở file tại thi�
 
 ## Bản web
 
-Mở [thanhtech.cloud/viewer](https://thanhtech.cloud/viewer/) rồi bấm **Thêm model** hoặc kéo thả file. File được đọc trong tab và sẽ rời thư viện khi tải lại trang. Trang dùng HTTPS để mở camera và WebXR trực tiếp trên thiết bị được hỗ trợ. Để đồng bộ model từ PC sang điện thoại, dùng bản LAN.
+Mở [thanhtech.cloud/DynamicView_3DGS](https://thanhtech.cloud/DynamicView_3DGS/) rồi bấm **Thêm model** hoặc kéo thả file. File được đọc trong tab và sẽ rời thư viện khi tải lại trang. Trang dùng HTTPS để mở camera và WebXR trực tiếp trên thiết bị được hỗ trợ. Để đồng bộ model từ PC sang điện thoại, dùng bản LAN.
 
-GitHub Actions của portfolio chạy kiểm thử rồi build viewer vào thư mục **viewer/** của GitHub Pages. Có thể tạo bản tĩnh bằng các lệnh sau.
+GitHub Actions của portfolio chạy kiểm thử rồi build viewer vào thư mục **DynamicView_3DGS/** của GitHub Pages. Có thể tạo bản tĩnh bằng các lệnh sau.
 
 ```sh
 npm ci
 npm test
 npm run build
 ```
+
+## Di chuyển và xem cận cảnh
+
+- **3D** · Kéo chuột trái để xoay, kéo chuột phải để dịch khung hình, cuộn để zoom về phía con trỏ. Trên điện thoại, rê hai ngón để dịch và chụm để zoom.
+- **Bay** · Kéo trong khung xem để đổi hướng nhìn, dùng **WASD** để tiến, lùi và dịch ngang, dùng **Q/E** để xuống hoặc lên. Cuộn để tiến lùi theo hướng đang nhìn. Giữ **Shift** để đi chậm khi soi cận cảnh.
+- Trên điện thoại, bấm **Bay**, kéo một ngón để nhìn rồi giữ các nút di chuyển. Bật **Chậm** để chỉnh từng chút. Nút **◎** đưa camera về góc nhìn ban đầu. Bấm **3D** để tiếp tục xoay quanh điểm đang nhìn.
 
 ## Chiều model, ánh sáng và bóng
 

@@ -66,6 +66,7 @@
         </div>
         <div class="modes">
           <button class="button mode-button" id="orbit" type="button" aria-pressed="true">3D</button>
+          <button class="button mode-button" id="fly" type="button" aria-pressed="false" disabled>Bay</button>
           <button class="button mode-button" id="ar" type="button" aria-pressed="false"><span class="ar-glyph" aria-hidden="true">⌑</span> AR</button>
         </div>
       </header>
@@ -90,7 +91,21 @@
           <label class="lighting-shadow"><input id="light-shadow" type="checkbox" checked> Đổ bóng</label>
         </div>
         <div class="stage-message" id="stage-message" role="status" hidden></div>
-        <div class="viewport-hint" id="view-hint">Kéo để xoay <span>·</span> Cuộn hoặc chụm để zoom</div>
+        <div class="flight-reticle" id="flight-reticle" aria-hidden="true" hidden></div>
+        <div class="flight-pad" id="flight-pad" role="group" aria-label="Di chuyển trong không gian" hidden>
+          <div class="flight-directions">
+            <button type="button" data-flight-move="forward" aria-label="Tiến">↑</button>
+            <button type="button" data-flight-move="left" aria-label="Dịch trái">←</button>
+            <button type="button" data-flight-move="back" aria-label="Lùi">↓</button>
+            <button type="button" data-flight-move="right" aria-label="Dịch phải">→</button>
+          </div>
+          <div class="flight-height">
+            <button type="button" data-flight-move="up">Lên</button>
+            <button type="button" id="flight-slow" aria-pressed="false">Chậm</button>
+            <button type="button" data-flight-move="down">Xuống</button>
+          </div>
+        </div>
+        <div class="viewport-hint" id="view-hint">Kéo để xoay · Chuột phải để dịch · Cuộn để zoom</div>
       </div>
       <footer class="studio-footer">
         <span id="model-info">Đang đọc thư viện</span>

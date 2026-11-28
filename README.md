@@ -33,6 +33,6 @@ Snapshot ở `assets/data/projects.json`. Chạy `--offline` để dựng lại 
 
 `.github/workflows/deploy.yml` tự đồng bộ và triển khai khi push `main`, chạy thủ công hoặc khoảng **07:17 mỗi ngày (giờ Việt Nam)**. Lịch GitHub Actions có thể trễ. Workflow dùng `GITHUB_TOKEN` có sẵn, không cần PAT hay secret mới. Token chỉ được gửi đến GitHub API trong bước build, không được ghi vào HTML/JSON.
 
-Pages của repo portfolio dùng **GitHub Actions** làm nguồn, giữ custom domain `thanhtech.cloud`. Artifact gồm portfolio và DynamicView tại **/viewer/**. Workflow kiểm thử và build mã nguồn trong **tools/dynamicview/** vào **_site/viewer/**. Các repo web con tiếp tục deploy bằng workflow riêng và giữ nguyên đường dẫn.
+Pages của repo portfolio dùng **GitHub Actions** làm nguồn, giữ custom domain `thanhtech.cloud`. Artifact gồm portfolio và DynamicView tại **/DynamicView_3DGS/**. Workflow kiểm thử và build mã nguồn trong **tools/dynamicview/** vào **_site/DynamicView_3DGS/**. Các repo web con tiếp tục deploy bằng workflow riêng và giữ nguyên đường dẫn.
 
 Để tự đồng bộ vào site ngay sau khi tạo repo mới, chạy **Actions → Sync projects & deploy portfolio → Run workflow**, hoặc chờ lịch hằng ngày.

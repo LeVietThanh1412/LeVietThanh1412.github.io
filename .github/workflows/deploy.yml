@@ -47,7 +47,7 @@ jobs:
         run: python scripts/build_site.py
       - name: Build 3D viewer
         working-directory: tools/dynamicview
-        run: npm run build -- ../../_site/viewer
+        run: npm run build -- ../../_site/DynamicView_3DGS
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:

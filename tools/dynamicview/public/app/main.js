@@ -14,6 +14,8 @@ const modelList = byId('model-list');
 const stageMessage = byId('stage-message');
 const lightingToggle = byId('lighting-toggle');
 const lightingPanel = byId('lighting-panel');
+const flightToggle = byId('fly');
+const touchPrimary = matchMedia('(pointer: coarse)');
 const descriptions = { mesh: 'Lưới 3D', splats: 'Gaussian Splatting', points: 'Đám mây điểm' };
 const symbols = { glb: '◇', usdz: '▱', ply: '⁙', splat: '⁙', ksplat: '⁙', spz: '⁙' };
 let config;
@@ -48,10 +50,28 @@ function connection(live, peers) {
   if (element.lastElementChild.textContent !== label) element.lastElementChild.textContent = label;
 }
 
-function modeChanged(mode) {
-  byId('orbit').setAttribute('aria-pressed', mode === 'orbit');
+function renderNavigation() {
+  const mode = stage?.mode ?? 'orbit';
+  const flying = !!stage?.flight.active;
+  byId('orbit').setAttribute('aria-pressed', mode === 'orbit' && !flying);
   byId('ar').setAttribute('aria-pressed', mode !== 'orbit');
-  byId('view-label').textContent = mode === 'camera' ? 'CAMERA LIVE' : 'PERSPECTIVE';
+  flightToggle.setAttribute('aria-pressed', flying);
+  flightToggle.disabled = !stage?.asset || mode === 'xr';
+  viewport.classList.toggle('is-flying', flying);
+  byId('flight-reticle').hidden = byId('flight-pad').hidden = !flying;
+  byId('spin').disabled = flying;
+  byId('spin').setAttribute('aria-pressed', !!stage?.controls.autoRotate);
+  byId('view-label').textContent = mode === 'camera' ? 'CAMERA LIVE' : flying ? 'BAY' : 'PERSPECTIVE';
+  const touch = touchPrimary.matches;
+  byId('view-hint').textContent = flying
+    ? (touch ? 'Kéo để nhìn · Giữ các nút để bay'
+      : 'Kéo để nhìn · WASD để bay · Q/E xuống/lên · Shift đi chậm')
+    : (touch ? 'Kéo để xoay · Hai ngón để dịch hoặc chụm zoom'
+      : 'Kéo để xoay · Chuột phải để dịch · Cuộn để zoom');
+}
+
+function modeChanged(mode) {
+  renderNavigation();
   showLighting(false);
   if (mode === 'xr') controller?.abort();
   if (mode === 'orbit' && snapshot && desiredId !== stage.asset?.id) showModel(desiredId);
@@ -196,6 +216,7 @@ async function showModel(id) {
     byId('flip').setAttribute('aria-pressed', 'false');
     lightingToggle.hidden = asset.kind !== 'mesh';
     if (lightingToggle.hidden) showLighting(false);
+    renderNavigation();
     byId('kind').textContent = descriptions[asset.kind];
     byId('model-name').textContent = model.name;
     byId('model-name').title = model.name;
@@ -440,7 +461,28 @@ byId('ar').addEventListener('click', () => {
   arDialog.showModal();
   refreshAR();
 });
-byId('orbit').addEventListener('click', () => stage?.stopCamera());
+byId('orbit').addEventListener('click', () => {
+  if (!stage) return;
+  stage.stopCamera();
+  stage.setFlight(false);
+  renderNavigation();
+});
+flightToggle.addEventListener('click', () => {
+  stage.stopCamera();
+  stage.setFlight(!stage.flight.active);
+  renderNavigation();
+});
+byId('flight-slow').addEventListener('click', (event) => {
+  stage.flight.slow = !stage.flight.slow;
+  event.currentTarget.setAttribute('aria-pressed', stage.flight.slow);
+});
+viewport.addEventListener('keydown', (event) => {
+  if (event.code !== 'Escape' || !stage?.flight.active || event.target !== stage.renderer.domElement) return;
+  stage.setFlight(false);
+  renderNavigation();
+  if (!document.fullscreenElement && !viewport.classList.contains('canvas-full')) flightToggle.focus();
+});
+touchPrimary.addEventListener('change', renderNavigation);
 byId('camera').addEventListener('click', () => {
   if (stage.mode === 'camera') arDialog.close();
   else launchAR('camera');
@@ -490,6 +532,7 @@ try {
     const element = byId('xr-hint');
     if (element.textContent !== hint) element.textContent = hint;
   });
+  renderNavigation();
 } catch (error) {
   console.error(error);
   byId('model-name').textContent = 'WebGL 2 không khả dụng';

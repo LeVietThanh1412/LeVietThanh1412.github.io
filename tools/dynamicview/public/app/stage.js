@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { ModelLoader, disposeModel } from './models.js';
 import { SceneLighting } from './lighting.js';
+import { FlyNavigation } from './fly-navigation.js';
 
 const defaults = new THREE.Vector3(0.12, 0.24, 1).normalize();
 const unit = 2.7;
@@ -33,9 +34,12 @@ export class Stage {
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
     this.controls.addEventListener('change', () => { this.dirty = true; });
     this.controls.enableDamping = true;
+    this.controls.zoomToCursor = true;
     this.controls.minDistance = 0.12;
     this.controls.maxDistance = 28;
     this.controls.autoRotateSpeed = 0.75;
+    this.flight = new FlyNavigation(this.camera, this.renderer.domElement, viewport, () => { this.dirty = true; });
+    this.sight = new THREE.Vector3();
 
     this.anchor = new THREE.Group();
     this.pivot = new THREE.Group();
@@ -118,7 +122,30 @@ export class Stage {
     const fit = Math.min(this.camera.aspect || 1, 1.25);
     const distance = this.asset?.kind === 'mesh' ? this.meshDistance() : 5.5 / fit;
     this.camera.position.copy(defaults).multiplyScalar(distance);
-    this.controls.update();
+    if (this.flight.active) {
+      this.flight.clearInput();
+      this.camera.lookAt(this.controls.target);
+      this.flight.align();
+    } else {
+      this.controls.update();
+    }
+    this.dirty = true;
+  }
+
+  setFlight(active) {
+    if (this.flight.active === active || (active && this.mode !== 'orbit')) return;
+    if (active) this.controls.autoRotate = false;
+    this.controls.enabled = this.mode !== 'xr' && !active;
+    this.camera.near = active ? 0.004 : 0.02;
+    this.camera.updateProjectionMatrix();
+    this.flight.setActive(active);
+    if (!active && this.controls.enabled) {
+      this.camera.getWorldDirection(this.sight);
+      this.controls.target.sub(this.camera.position);
+      const depth = THREE.MathUtils.clamp(this.controls.target.dot(this.sight), 0.25, this.controls.maxDistance);
+      this.controls.target.copy(this.camera.position).addScaledVector(this.sight, depth);
+      this.controls.update();
+    }
     this.dirty = true;
   }
 
@@ -144,6 +171,7 @@ export class Stage {
 
   setMode(mode) {
     this.mode = mode;
+    if (mode !== 'orbit') this.setFlight(false);
     this.viewport.classList.toggle('camera-live', mode === 'camera');
     document.body.classList.toggle('in-xr', mode === 'xr');
     this.updateGround();
@@ -277,6 +305,8 @@ export class Stage {
         this.reticle.matrixWorldNeedsUpdate = true;
         if (!this.anchor.visible) this.onXRHint('Chạm vào bề mặt để đặt model.');
       }
+    } else if (this.flight.active) {
+      this.flight.update(elapsed);
     } else if (this.controls.enabled) {
       this.controls.update(elapsed);
     }
