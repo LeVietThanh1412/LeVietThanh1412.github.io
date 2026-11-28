@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f9f7f3">
+  <meta name="description" content="Xem và chia sẻ model 3D, Gaussian Splatting và AR qua mạng nội bộ.">
+  <title>DynamicView — 3D Studio</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./app/studio.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/",
+        "@sparkjsdev/spark": "./vendor/spark/spark.module.js",
+        "qrcode-generator": "./vendor/qrcode/qrcode.mjs"
+      }
+    }
+  </script>
+  <script type="module" src="./app/main.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <i class="brand-mark" aria-hidden="true"><b></b><b></b><b></b></i>
+      <span>DynamicView <small>3D STUDIO</small></span>
+    </div>
+    <div class="top-actions">
+      <span class="connection" id="connection" role="status"><i></i><span>Đang kết nối</span></span>
+      <button class="button share-button" id="share" type="button"><span class="phone-glyph" aria-hidden="true"></span> Kết nối điện thoại</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="library" aria-labelledby="library-title">
+      <div class="library-heading">
+        <div>
+          <h1 id="library-title">Thư viện</h1>
+          <p>Model trên máy tính này</p>
+        </div>
+        <span id="library-count" class="count"></span>
+      </div>
+      <div id="model-list" class="model-list" aria-label="Danh sách model"></div>
+      <div class="library-bottom">
+        <label id="upload" class="upload" for="model-file" hidden>
+          <span aria-hidden="true" class="upload-plus">+</span>
+          <strong>Thêm model</strong>
+          <span>Thả tệp vào đây hoặc nhấn để chọn</span>
+          <small>PLY · GLB · USDZ · SPLAT · KSPLAT · SPZ</small>
+        </label>
+        <input class="visually-hidden" id="model-file" type="file" accept=".ply,.glb,.usdz,.splat,.ksplat,.spz" hidden>
+        <progress id="progress" max="1" aria-label="Tiến độ tải tệp" hidden></progress>
+        <label id="follow-wrap" class="follow" hidden>
+          <input id="follow" type="checkbox" checked>
+          <span>Theo model từ máy tính</span>
+        </label>
+      </div>
+    </aside>
+
+    <section class="studio" aria-label="Viewer">
+      <header class="model-heading">
+        <div class="model-title">
+          <div class="eyebrow"><span class="tiny-line"></span><span id="kind">Xem trước 3D</span></div>
+          <h2 id="model-name">Đang tải…</h2>
+        </div>
+        <div class="modes">
+          <button class="button mode-button" id="orbit" type="button" aria-pressed="true">3D</button>
+          <button class="button mode-button" id="ar" type="button" aria-pressed="false"><span class="ar-glyph" aria-hidden="true">⌑</span> AR</button>
+        </div>
+      </header>
+
+      <div class="viewport" id="viewport">
+        <div class="studio-floor" aria-hidden="true"></div>
+        <video id="video" muted playsinline></video>
+        <div class="viewport-label" aria-hidden="true"><span></span><span id="view-label">PERSPECTIVE</span></div>
+        <div class="viewport-tools" aria-label="Điều khiển góc nhìn">
+          <button class="tool" id="reset" type="button" aria-label="Đặt lại góc nhìn" title="Đặt lại góc nhìn">◎</button>
+          <button class="tool" id="flip" type="button" aria-label="Lật model 180 độ" title="Lật model 180°" aria-pressed="false">↶</button>
+          <button class="tool" id="spin" type="button" aria-label="Tự động xoay" title="Tự động xoay" aria-pressed="false">▷</button>
+          <button class="tool" id="lighting-toggle" type="button" aria-label="Ánh sáng" title="Ánh sáng" aria-expanded="false" aria-controls="lighting-panel" hidden>☼</button>
+          <button class="tool" id="fullscreen" type="button" aria-label="Toàn màn hình" title="Toàn màn hình">⛶</button>
+        </div>
+        <div class="lighting-panel" id="lighting-panel" role="group" aria-label="Điều chỉnh ánh sáng" hidden>
+          <strong>Ánh sáng</strong>
+          <label for="light-angle">Hướng đèn</label>
+          <input id="light-angle" type="range" min="-180" max="180" step="4" value="-36">
+          <label for="light-level">Cường độ</label>
+          <input id="light-level" type="range" min="0.25" max="2" step="0.05" value="1">
+          <label class="lighting-shadow"><input id="light-shadow" type="checkbox" checked> Đổ bóng</label>
+        </div>
+        <div class="stage-message" id="stage-message" role="status" hidden></div>
+        <div class="viewport-hint" id="view-hint">Kéo để xoay <span>·</span> Cuộn hoặc chụm để zoom</div>
+      </div>
+      <footer class="studio-footer">
+        <span id="model-info">Đang đọc thư viện</span>
+        <a id="download" download hidden>Tải tệp ↓</a>
+        <span id="shared-indicator" class="shared-indicator" hidden><i></i> Đang chia sẻ</span>
+      </footer>
+    </section>
+  </main>
+
+  <dialog id="share-dialog" aria-labelledby="share-title">
+    <div class="dialog-heading">
+      <h2 id="share-title">Kết nối điện thoại</h2>
+      <form method="dialog"><button class="close" aria-label="Đóng">×</button></form>
+    </div>
+    <p>Mở liên kết trên điện thoại cùng Wi-Fi với máy tính.</p>
+    <div class="pairing">
+      <canvas id="qr" aria-label="Mã QR để mở viewer"></canvas>
+      <div>
+        <a id="pair-url" class="pair-url"></a>
+        <a id="ar-pair-url" class="pair-url" hidden></a>
+        <button type="button" class="button" id="copy">Sao chép liên kết</button>
+        <p id="pair-note"></p>
+      </div>
+    </div>
+    <a id="ca-link" href="/lan-ca.crt" hidden>Tải chứng chỉ LAN cho điện thoại</a>
+    <p id="ca-note" hidden>Cài và tin cậy chứng chỉ trước, sau đó mở liên kết HTTPS để bật camera.</p>
+  </dialog>
+
+  <dialog id="ar-dialog" aria-labelledby="ar-title">
+    <div class="dialog-heading">
+      <h2 id="ar-title">Xem bằng camera</h2>
+      <form method="dialog"><button class="close" aria-label="Đóng">×</button></form>
+    </div>
+    <p id="ar-help"></p>
+    <div class="ar-options">
+      <button class="button primary" id="webxr" type="button" hidden>Đặt model bằng WebXR</button>
+      <button class="button primary" id="prepare-usdz" type="button" hidden>Tạo bản Quick Look</button>
+      <button class="button" id="camera" type="button" hidden>Chồng model lên camera</button>
+      <a class="button primary quick-link" id="quick-look" rel="ar" aria-label="Mở bằng AR Quick Look" hidden><img alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"></a>
+      <a class="button primary" id="secure-link" hidden>Mở viewer bằng HTTPS</a>
+    </div>
+    <p id="ar-status" role="status"></p>
+  </dialog>
+
+  <div id="xr-overlay" class="xr-overlay">
+    <p id="xr-hint" aria-live="polite"></p>
+    <div>
+      <button id="smaller" type="button" aria-label="Thu nhỏ model">−</button>
+      <button id="larger" type="button" aria-label="Phóng to model">+</button>
+      <button id="exit-ar" type="button">Thoát AR</button>
+    </div>
+  </div>
+  <output id="notice" class="notice" aria-live="polite" hidden></output>
+  <noscript>DynamicView cần JavaScript và WebGL 2 để hiển thị model.</noscript>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "dynamicview-3dgs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node scripts/build-static.mjs",
+    "test": "node --test",
+    "make-demos": "node scripts/make-demos.mjs"
+  },
+  "dependencies": {
+    "@sparkjsdev/spark": "2.4.0",
+    "qrcode-generator": "2.0.4",
+    "three": "0.187.0",
+    "ws": "8.23.1"
+  }
+}
